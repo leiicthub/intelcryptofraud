@@ -1,12 +1,23 @@
 import { Calendar, Users, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import summitEvent from "@/assets/summit-event.jpg";
 
 export const EventSection = () => {
   return (
     <section className="py-20 bg-primary/5">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-card border-2 border-primary p-12 text-center">
+        <div className="max-w-5xl mx-auto">
+          <div className="relative bg-card border-2 border-primary overflow-hidden">
+            <div className="relative h-64 md:h-80 overflow-hidden">
+              <img 
+                src={summitEvent} 
+                alt="Global Financial Crimes Summit"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+            </div>
+            
+            <div className="relative p-8 md:p-12 text-center">
             <div className="flex justify-center gap-8 mb-6">
               <Calendar className="h-12 w-12 text-primary" />
               <Users className="h-12 w-12 text-primary" />
@@ -31,6 +42,7 @@ export const EventSection = () => {
             >
               View Event Highlights
             </Button>
+            </div>
           </div>
         </div>
       </div>

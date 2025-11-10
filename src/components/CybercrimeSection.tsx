@@ -1,17 +1,48 @@
-import { Shield, DollarSign, Bitcoin, TrendingUp, Heart, Mail, User, Building, Repeat, Users, Trophy } from "lucide-react";
+import { Shield, AlertTriangle, DollarSign, Coins, TrendingDown, Scale } from "lucide-react";
+import internetFraud from "@/assets/internet-fraud.jpg";
+import investmentScams from "@/assets/investment-scams.jpg";
+import cryptoTheft from "@/assets/crypto-theft.jpg";
+import forexFraud from "@/assets/forex-fraud.jpg";
+import securitiesViolations from "@/assets/securities-violations.jpg";
+import assetRecovery from "@/assets/asset-recovery.jpg";
 
-const cybercrimes = [
-  { name: "Investments", icon: TrendingUp },
-  { name: "Cryptocurrency", icon: Bitcoin },
-  { name: "Forex", icon: DollarSign },
-  { name: "Ransomware & Malware", icon: Shield },
-  { name: "Fake Charities", icon: Heart },
-  { name: "Phishing", icon: Mail },
-  { name: "Identity Theft", icon: User },
-  { name: "Company Director", icon: Building },
-  { name: "Ponzi Scheme", icon: Repeat },
-  { name: "Dating & Romance", icon: Users },
-  { name: "Betting & Sports", icon: Trophy },
+const categories = [
+  {
+    icon: Shield,
+    title: "Internet Fraud",
+    description: "Investigation and recovery services for online scams and digital fraud",
+    image: internetFraud,
+  },
+  {
+    icon: DollarSign,
+    title: "Investment Scams",
+    description: "Asset recovery for fraudulent investment schemes and Ponzi schemes",
+    image: investmentScams,
+  },
+  {
+    icon: Coins,
+    title: "Cryptocurrency Theft",
+    description: "Blockchain forensics and crypto asset tracing services",
+    image: cryptoTheft,
+  },
+  {
+    icon: TrendingDown,
+    title: "Forex Trading Fraud",
+    description: "Recovery assistance for foreign exchange trading scams",
+    image: forexFraud,
+  },
+  {
+    icon: AlertTriangle,
+    title: "Securities Violations",
+    description: "Investigation of securities fraud and regulatory violations",
+    image: securitiesViolations,
+  },
+  {
+    icon: Scale,
+    title: "Asset Recovery",
+    description: "International asset tracing and recovery services",
+    image: assetRecovery,
+  },
 ];
 
 export const CybercrimeSection = () => {
@@ -27,19 +58,32 @@ export const CybercrimeSection = () => {
           </h2>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-          {cybercrimes.map((crime, index) => {
-            const Icon = crime.icon;
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {categories.map((category, index) => {
+            const Icon = category.icon;
             return (
-              <button
+              <div
                 key={index}
-                className="group p-6 bg-background border border-border hover:border-primary transition-all duration-300 text-left"
+                className="group relative bg-card border border-border hover:border-primary transition-all duration-300 overflow-hidden"
               >
-                <Icon className="h-6 w-6 text-primary mb-3 group-hover:scale-110 transition-transform" />
-                <p className="text-foreground text-sm font-medium group-hover:text-primary transition-colors">
-                  {crime.name}
-                </p>
-              </button>
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={category.image} 
+                    alt={category.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+                  <Icon className="absolute bottom-4 left-4 h-10 w-10 text-primary" />
+                </div>
+                <div className="relative p-6">
+                  <h3 className="text-xl font-bold text-foreground mb-3">
+                    {category.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {category.description}
+                  </p>
+                </div>
+              </div>
             );
           })}
         </div>

@@ -1,4 +1,16 @@
 import { Button } from "@/components/ui/button";
+import mediaCoverage1 from "@/assets/media-coverage-1.jpg";
+import mediaCoverage2 from "@/assets/media-coverage-2.jpg";
+import mediaCoverage3 from "@/assets/media-coverage-3.jpg";
+
+const mediaFeatures = [
+  { image: mediaCoverage1, title: "Global News Network Feature" },
+  { image: mediaCoverage2, title: "International Press Coverage" },
+  { image: mediaCoverage3, title: "Digital Media Recognition" },
+  { image: mediaCoverage1, title: "Financial Times Investigation" },
+  { image: mediaCoverage2, title: "BBC Cybercrime Documentary" },
+  { image: mediaCoverage3, title: "Forbes Asset Recovery Article" },
+];
 
 export const HeadlinesSection = () => {
   return (
@@ -14,15 +26,21 @@ export const HeadlinesSection = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
-          {[1, 2, 3, 4, 5, 6].map((item) => (
+          {mediaFeatures.map((item, index) => (
             <div 
-              key={item}
-              className="aspect-video bg-muted/50 border border-border hover:border-primary transition-colors overflow-hidden group cursor-pointer"
+              key={index}
+              className="group aspect-video bg-muted/50 border border-border hover:border-primary transition-all duration-300 overflow-hidden cursor-pointer"
             >
-              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-background to-secondary group-hover:from-primary/10 group-hover:to-primary/5 transition-all">
-                <div className="text-center p-6">
-                  <p className="text-sm text-muted-foreground font-medium">
-                    Media Feature {item}
+              <div className="relative w-full h-full">
+                <img 
+                  src={item.image} 
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <p className="text-sm text-foreground font-medium">
+                    {item.title}
                   </p>
                 </div>
               </div>
