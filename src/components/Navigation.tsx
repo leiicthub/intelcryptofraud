@@ -19,16 +19,16 @@ export const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            <a href="#about" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
+            <a href="/about" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
               About Us
             </a>
-            <a href="#services" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
+            <a href="/services" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
               Services
             </a>
-            <a href="#media" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
+            <a href="/media" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
               Media
             </a>
-            <a href="#events" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
+            <a href="/events" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
               Events
             </a>
           </div>
@@ -67,16 +67,16 @@ export const Navigation = () => {
         {isMenuOpen && (
           <div className="lg:hidden py-4 border-t border-border">
             <div className="flex flex-col space-y-4">
-              <a href="#about" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
+              <a href="/about" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
                 About Us
               </a>
-              <a href="#services" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
+              <a href="/services" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
                 Services
               </a>
-              <a href="#media" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
+              <a href="/media" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
                 Media
               </a>
-              <a href="#events" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
+              <a href="/events" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
                 Events
               </a>
               <div className="pt-4 border-t border-border">
