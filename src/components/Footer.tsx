@@ -8,8 +8,7 @@ export const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="text-foreground mb-4">
-              <h3 className="text-2xl font-bold tracking-wider">IFW</h3>
-              <div className="text-xs tracking-widest uppercase">Global</div>
+              <h3 className="text-xl font-bold tracking-wider">Fraudcryptointel</h3>
               <div className="h-1 bg-primary w-24 mt-2"></div>
             </div>
             <p className="text-sm text-muted-foreground mb-4">
@@ -109,7 +108,7 @@ export const Footer = () => {
 
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© 2025 IFW Global. All rights reserved.</p>
+            <p>© 2025 Fraudcryptointel. All rights reserved.</p>
             <div className="flex gap-6">
               <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
