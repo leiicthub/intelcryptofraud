@@ -12,7 +12,7 @@ export const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center">
             <div className="text-foreground">
-              <h1 className="text-2xl font-bold tracking-wider">Fraudcryptointel</h1>
+              <h1 className="text-2xl font-bold tracking-wider">CryptoFraudIntel</h1>
               <div className="h-1 bg-primary w-full mt-1"></div>
             </div>
           </div>
