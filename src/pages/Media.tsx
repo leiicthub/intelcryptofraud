@@ -10,14 +10,14 @@ const Media = () => {
   const pressReleases = [
     {
       date: "March 2024",
-      title: "Fraudcryptointel Recovers $50M in International Crypto Scam",
+      title: "CryptoFraudIntel Recovers $50M in International Crypto Scam",
       excerpt: "Our team successfully traced and recovered $50 million in stolen cryptocurrency across multiple jurisdictions...",
       category: "Press Release"
     },
     {
       date: "February 2024",
       title: "Partnership with Global Law Enforcement Agencies Announced",
-      excerpt: "Fraudcryptointel expands collaboration with Interpol and FBI to combat cross-border financial fraud...",
+      excerpt: "CryptoFraudIntel expands collaboration with Interpol and FBI to combat cross-border financial fraud...",
       category: "Press Release"
     },
     {
