@@ -1,7 +1,7 @@
 import { Phone, Search, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import logo from "@/assets/cfi-logo.jpg";
+import logo from "@/assets/cfi-logo.png";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +13,7 @@ export const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center">
             <a href="/" className="flex items-center">
-              <img src={logo} alt="CryptoFraudIntel Logo" className="h-12 md:h-16 w-auto" />
+              <img src={logo} alt="CryptoFraudIntel Logo" className="h-16 md:h-20 w-auto" />
             </a>
           </div>
 

@@ -1,5 +1,5 @@
 import { Facebook, Instagram, Linkedin, Twitter, Youtube, Mail, Phone, MapPin } from "lucide-react";
-import logo from "@/assets/cfi-logo.jpg";
+import logo from "@/assets/cfi-logo.png";
 
 export const Footer = () => {
   return (
@@ -9,7 +9,7 @@ export const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="mb-4">
-              <img src={logo} alt="CryptoFraudIntel Logo" className="h-12 w-auto" />
+              <img src={logo} alt="CryptoFraudIntel Logo" className="h-16 w-auto" />
             </div>
             <p className="text-sm text-muted-foreground mb-4">
               Experts in cross border criminal intelligence, investigations, and asset recovery
