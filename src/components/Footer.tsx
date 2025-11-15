@@ -110,6 +110,7 @@ export const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
             <p>© 2025 CryptoFraudIntel. All rights reserved.</p>
             <div className="flex gap-6">
+              <a href="/refund-policy" className="hover:text-primary transition-colors">Refund Policy</a>
               <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
               <a href="#" className="hover:text-primary transition-colors">Cookie Policy</a>
