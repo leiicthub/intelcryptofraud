@@ -111,9 +111,9 @@ export const Footer = () => {
             <p>© 2025 CryptoFraudIntel. All rights reserved.</p>
             <div className="flex gap-6">
               <a href="/refund-policy" className="hover:text-primary transition-colors">Refund Policy</a>
-              <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-primary transition-colors">Cookie Policy</a>
+              <a href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</a>
+              <a href="/terms-of-service" className="hover:text-primary transition-colors">Terms of Service</a>
+              <a href="/cookie-policy" className="hover:text-primary transition-colors">Cookie Policy</a>
             </div>
           </div>
         </div>
