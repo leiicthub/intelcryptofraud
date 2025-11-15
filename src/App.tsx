@@ -8,6 +8,7 @@ import AboutUs from "./pages/AboutUs";
 import Services from "./pages/Services";
 import Media from "./pages/Media";
 import Events from "./pages/Events";
+import RefundPolicy from "./pages/RefundPolicy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/media" element={<Media />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
