@@ -83,17 +83,20 @@ export const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <Phone className="h-4 w-4 text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <p className="text-muted-foreground">HQ: 1300 439 456</p>
-                  <p className="text-muted-foreground">AUS: +61 (02) 8328 0402</p>
-                  <p className="text-muted-foreground">USA: +1 (833) 202 7333</p>
-                </div>
+                <a href="tel:1300439456" className="text-muted-foreground hover:text-primary transition-colors">
+                  HQ: 1300 439 456
+                </a>
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="h-4 w-4 text-primary flex-shrink-0 mt-1" />
-                <a href="mailto:info@example.com" className="text-muted-foreground hover:text-primary transition-colors">
-                  info@example.com
-                </a>
+                <div className="flex flex-col gap-1">
+                  <a href="mailto:jayden@cryptofraudintel.com" className="text-muted-foreground hover:text-primary transition-colors">
+                    jayden@cryptofraudintel.com
+                  </a>
+                  <a href="mailto:Emmavalerie@cryptofraudintel.com" className="text-muted-foreground hover:text-primary transition-colors">
+                    Emmavalerie@cryptofraudintel.com
+                  </a>
+                </div>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 text-primary flex-shrink-0 mt-1" />

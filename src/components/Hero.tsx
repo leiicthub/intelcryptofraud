@@ -41,10 +41,6 @@ export const Hero = () => {
           <div className="mt-12 flex items-center gap-4 text-sm text-muted-foreground">
             <Phone className="h-4 w-4" />
             <span>HQ: 1300 439 456</span>
-            <span>|</span>
-            <span>AUS: +61 (02) 8328 0402</span>
-            <span>|</span>
-            <span>USA: +1 (833) 202 7333</span>
           </div>
         </div>
       </div>
