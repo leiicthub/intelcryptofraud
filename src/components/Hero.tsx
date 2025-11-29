@@ -1,13 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Play, Phone } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroArrestScene from "@/assets/hero-arrest-scene.jpg";
 
 export const Hero = () => {
   return (
     <section className="relative min-h-[80vh] flex items-center bg-background overflow-hidden">
-      {/* Background image */}
+      {/* Animated background image */}
       <div className="absolute inset-0">
-        <img src={heroBg} alt="Global intelligence network" className="w-full h-full object-cover" />
+        <img 
+          src={heroArrestScene} 
+          alt="Law enforcement arrest operation" 
+          className="w-full h-full object-cover animate-hero-zoom"
+        />
       </div>
       {/* Background overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80"></div>
