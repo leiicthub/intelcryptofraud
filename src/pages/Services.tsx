@@ -148,8 +148,8 @@ const Services = () => {
                       ))}
                     </ul>
                     
-                    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider">
-                      Request Consultation
+                    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider" asChild>
+                      <a href="/consultation">Request Consultation</a>
                     </Button>
                   </div>
                   
@@ -194,8 +194,8 @@ const Services = () => {
             Contact us today for a free consultation with our expert investigators
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider">
-              Submit an Enquiry
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider" asChild>
+              <a href="/consultation">Submit an Enquiry</a>
             </Button>
             <Button variant="outline" className="font-bold uppercase tracking-wider">
               Call Us Now

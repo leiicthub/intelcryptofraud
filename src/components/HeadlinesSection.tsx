@@ -59,8 +59,8 @@ export const HeadlinesSection = () => {
             <span className="text-muted-foreground">|</span>
             <a href="tel:+18332027333" className="text-primary hover:text-primary/80 font-medium">USA: +1 (833) 202 7333</a>
           </div>
-          <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider">
-            Submit an Enquiry
+          <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider" asChild>
+            <a href="/consultation">Submit an Enquiry</a>
           </Button>
         </div>
       </div>
