@@ -33,8 +33,9 @@ export const Hero = () => {
           <Button 
             size="lg" 
             className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider text-sm px-8"
+            asChild
           >
-            Submit an Enquiry
+            <a href="/consultation">Submit an Enquiry</a>
           </Button>
           
           <div className="mt-12 flex items-center gap-4 text-sm text-muted-foreground">

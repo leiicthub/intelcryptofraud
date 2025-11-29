@@ -49,8 +49,8 @@ export const Navigation = () => {
                 </a>
               </div>
             </div>
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider">
-              Submit an Enquiry
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider" asChild>
+              <a href="/consultation">Submit an Enquiry</a>
             </Button>
           </div>
 
@@ -84,8 +84,8 @@ export const Navigation = () => {
                   <div className="mb-1">Australia: +61 (02) 8328 0402</div>
                   <div>USA: +1 (833) 202 7333</div>
                 </div>
-                <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider w-full">
-                  Submit an Enquiry
+                <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider w-full" asChild>
+                  <a href="/consultation">Submit an Enquiry</a>
                 </Button>
               </div>
             </div>
