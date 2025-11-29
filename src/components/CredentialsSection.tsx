@@ -1,4 +1,4 @@
-import { Shield, Award, CheckCircle } from "lucide-react";
+import { Shield, Award } from "lucide-react";
 
 export const CredentialsSection = () => {
   return (
@@ -20,7 +20,7 @@ export const CredentialsSection = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div className="bg-card border border-border p-8 text-center hover:border-primary transition-colors">
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
               <Award className="h-8 w-8 text-primary" />
@@ -42,18 +42,6 @@ export const CredentialsSection = () => {
             </h3>
             <p className="text-sm text-muted-foreground">
               Certificate of appreciation from international licensed investigator associations
-            </p>
-          </div>
-
-          <div className="bg-card border border-border p-8 text-center hover:border-primary transition-colors">
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <CheckCircle className="h-8 w-8 text-primary" />
-            </div>
-            <h3 className="text-lg font-bold text-foreground mb-3">
-              Securities Commission Expert
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              Certified subject matter expert by securities and exchange commissions
             </p>
           </div>
         </div>
