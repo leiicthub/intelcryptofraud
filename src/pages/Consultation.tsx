@@ -320,15 +320,52 @@ export default function Consultation() {
                   <label htmlFor="country" className="block text-sm font-semibold text-foreground mb-2">
                     Country <span className="text-destructive">*</span>
                   </label>
-                  <Input 
+                  <select 
                     id="country"
                     value={formData.country}
                     onChange={handleInputChange}
-                    placeholder="Enter your country" 
-                    required 
-                    className="h-12 text-base"
+                    className="w-full h-12 px-4 rounded-md border border-input bg-background text-foreground text-base"
+                    required
                     disabled={isSubmitting}
-                  />
+                  >
+                    <option value="">Select your country</option>
+                    <option value="United States">United States</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Germany">Germany</option>
+                    <option value="France">France</option>
+                    <option value="Spain">Spain</option>
+                    <option value="Italy">Italy</option>
+                    <option value="Netherlands">Netherlands</option>
+                    <option value="Belgium">Belgium</option>
+                    <option value="Switzerland">Switzerland</option>
+                    <option value="Austria">Austria</option>
+                    <option value="Sweden">Sweden</option>
+                    <option value="Norway">Norway</option>
+                    <option value="Denmark">Denmark</option>
+                    <option value="Finland">Finland</option>
+                    <option value="Ireland">Ireland</option>
+                    <option value="Poland">Poland</option>
+                    <option value="Czech Republic">Czech Republic</option>
+                    <option value="Portugal">Portugal</option>
+                    <option value="Greece">Greece</option>
+                    <option value="New Zealand">New Zealand</option>
+                    <option value="Singapore">Singapore</option>
+                    <option value="Hong Kong">Hong Kong</option>
+                    <option value="Japan">Japan</option>
+                    <option value="South Korea">South Korea</option>
+                    <option value="India">India</option>
+                    <option value="United Arab Emirates">United Arab Emirates</option>
+                    <option value="Saudi Arabia">Saudi Arabia</option>
+                    <option value="South Africa">South Africa</option>
+                    <option value="Brazil">Brazil</option>
+                    <option value="Mexico">Mexico</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Other">Other</option>
+                  </select>
                 </div>
 
                 <div>

@@ -73,13 +73,13 @@ const Services = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/10 via-background to-background py-20">
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-20 md:py-32">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 uppercase tracking-tight">
               Our Services
             </h1>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
               Comprehensive fraud investigation and asset recovery solutions
             </p>
           </div>
@@ -89,10 +89,10 @@ const Services = () => {
       {/* Services Tabs */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <Tabs defaultValue={services[0].id} className="w-full">
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-6 mb-8">
+          <Tabs defaultValue={services[0].id} className="w-full max-w-6xl mx-auto">
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-8 h-auto">
               {services.map((service) => (
-                <TabsTrigger key={service.id} value={service.id} className="text-sm">
+                <TabsTrigger key={service.id} value={service.id} className="text-sm py-3">
                   {service.title.split(' ')[0]}
                 </TabsTrigger>
               ))}
@@ -118,7 +118,7 @@ const Services = () => {
                       ))}
                     </ul>
                     
-                    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider" asChild>
+                    <Button className="bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold uppercase tracking-wider h-12" asChild>
                       <a href="/consultation">Request Consultation</a>
                     </Button>
                   </div>
@@ -136,18 +136,20 @@ const Services = () => {
       {/* Process Section */}
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Our Investigation Process</h2>
-          <div className="grid md:grid-cols-4 gap-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">Our Investigation Process</h2>
+          <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {[
               { step: "01", title: "Initial Consultation", description: "Free case assessment and strategy development" },
               { step: "02", title: "Evidence Collection", description: "Gathering and securing all relevant documentation" },
               { step: "03", title: "Investigation", description: "Deep analysis using advanced forensic tools" },
               { step: "04", title: "Recovery", description: "Asset tracing and legal enforcement action" }
             ].map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl font-bold text-primary mb-4">{item.step}</div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
+              <div key={index} className="text-center p-6 rounded-lg hover:bg-background/50 transition-all">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
+                  <div className="text-3xl font-bold text-primary">{item.step}</div>
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-3">{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
@@ -157,18 +159,18 @@ const Services = () => {
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-br from-primary/10 to-background">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-foreground mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Ready to Start Your Investigation?
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Contact us today for a free consultation with our expert investigators
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider" asChild>
+            <Button className="bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold uppercase tracking-wider h-12" asChild>
               <a href="/consultation">Submit an Enquiry</a>
             </Button>
-            <Button variant="outline" className="font-bold uppercase tracking-wider">
-              Call Us Now
+            <Button variant="outline" className="font-bold uppercase tracking-wider h-12 border-2" asChild>
+              <a href="tel:+12818325219">Call Us Now</a>
             </Button>
           </div>
         </div>
