@@ -14,7 +14,9 @@ const enquirySchema = z.object({
   lastName: z.string().trim().min(1, "Last name is required").max(100),
   phone: z.string().trim().min(1, "Phone number is required").max(50),
   countryCode: z.string(),
+  country: z.string().trim().min(1, "Country is required").max(100),
   email: z.string().trim().email("Invalid email address").max(255),
+  preferredCommunication: z.string().min(1, "Please select a preferred communication method"),
   amount: z.string().optional(),
   caseType: z.string().min(1, "Please select a case type"),
   details: z.string().trim().min(10, "Please provide at least 10 characters").max(5000),
@@ -28,7 +30,9 @@ export default function Consultation() {
     lastName: "",
     phone: "",
     countryCode: "+1",
+    country: "",
     email: "",
+    preferredCommunication: "",
     amount: "",
     caseType: "",
     details: "",
@@ -56,7 +60,9 @@ export default function Consultation() {
         lastName: formData.lastName,
         phone: formData.phone,
         countryCode: formData.countryCode,
+        country: formData.country,
         email: formData.email,
+        preferredCommunication: formData.preferredCommunication,
         amount: formData.amount,
         caseType: formData.caseType,
         details: formData.details,
@@ -82,7 +88,9 @@ export default function Consultation() {
         lastName: "",
         phone: "",
         countryCode: "+1",
+        country: "",
         email: "",
+        preferredCommunication: "",
         amount: "",
         caseType: "",
         details: "",
@@ -309,6 +317,21 @@ export default function Consultation() {
                 </div>
 
                 <div>
+                  <label htmlFor="country" className="block text-sm font-semibold text-foreground mb-2">
+                    Country <span className="text-destructive">*</span>
+                  </label>
+                  <Input 
+                    id="country"
+                    value={formData.country}
+                    onChange={handleInputChange}
+                    placeholder="Enter your country" 
+                    required 
+                    className="h-12 text-base"
+                    disabled={isSubmitting}
+                  />
+                </div>
+
+                <div>
                   <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2">
                     Email <span className="text-destructive">*</span>
                   </label>
@@ -322,6 +345,26 @@ export default function Consultation() {
                     className="h-12 text-base"
                     disabled={isSubmitting}
                   />
+                </div>
+
+                <div>
+                  <label htmlFor="preferredCommunication" className="block text-sm font-semibold text-foreground mb-2">
+                    Preferred Communication Method <span className="text-destructive">*</span>
+                  </label>
+                  <select 
+                    id="preferredCommunication"
+                    value={formData.preferredCommunication}
+                    onChange={handleInputChange}
+                    className="w-full h-12 px-4 rounded-md border border-input bg-background text-foreground text-base"
+                    required
+                    disabled={isSubmitting}
+                  >
+                    <option value="">Select communication method</option>
+                    <option value="Email">Email</option>
+                    <option value="Phone Call">Phone Call</option>
+                    <option value="WhatsApp">WhatsApp</option>
+                    <option value="SMS">SMS</option>
+                  </select>
                 </div>
 
                 <div>

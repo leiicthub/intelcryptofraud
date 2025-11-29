@@ -14,7 +14,9 @@ interface EnquiryRequest {
   lastName: string;
   phone: string;
   countryCode: string;
+  country: string;
   email: string;
+  preferredCommunication: string;
   amount?: string;
   caseType: string;
   details: string;
@@ -32,7 +34,9 @@ const handler = async (req: Request): Promise<Response> => {
       lastName,
       phone,
       countryCode,
+      country,
       email,
+      preferredCommunication,
       amount,
       caseType,
       details,
@@ -51,6 +55,8 @@ const handler = async (req: Request): Promise<Response> => {
         <p><strong>Name:</strong> ${firstName} ${lastName}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${countryCode} ${phone}</p>
+        <p><strong>Country:</strong> ${country}</p>
+        <p><strong>Preferred Communication:</strong> ${preferredCommunication}</p>
         
         <h2>Case Details</h2>
         <p><strong>Type of Case:</strong> ${caseType}</p>
