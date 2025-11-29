@@ -166,7 +166,7 @@ export default function Consultation() {
               </Button>
 
               <p className="text-sm text-muted-foreground text-center">
-                Or call us directly: HQ: 1300 439 456 | AUS: +61 (02) 8328 0402 | USA: +1 (833) 202 7333
+                Or call us directly: HQ: +1 (281) 832 5219
               </p>
             </form>
           </div>
