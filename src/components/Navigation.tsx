@@ -38,8 +38,8 @@ export const Navigation = () => {
             <div className="text-right text-sm">
               <div className="flex items-center gap-2 text-foreground">
                 <span className="font-medium">HQ:</span>
-                <a href="tel:1300439456" className="hover:text-primary transition-colors">
-                  1300 439 456
+                <a href="tel:+12818325219" className="hover:text-primary transition-colors">
+                  +1 (281) 832 5219
                 </a>
               </div>
             </div>
@@ -75,7 +75,7 @@ export const Navigation = () => {
               </a>
               <div className="pt-4 border-t border-border">
                 <div className="text-sm text-foreground mb-2">
-                  <div>HQ: 1300 439 456</div>
+                  <div>HQ: +1 (281) 832 5219</div>
                 </div>
                 <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider w-full" asChild>
                   <a href="/consultation">Submit an Enquiry</a>
