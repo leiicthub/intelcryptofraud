@@ -1,13 +1,11 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { Shield, TrendingUp, FileCheck, Search, DollarSign, Globe } from "lucide-react";
+import { Shield, TrendingUp, Search, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import internetFraudImg from "@/assets/cfi-arrest.jpg";
 import investmentScamsImg from "@/assets/investment-scam-arrest.jpg";
 import cryptoTheftImg from "@/assets/crypto-arrest.jpg";
-import forexFraudImg from "@/assets/forex-fraud.jpg";
-import securitiesImg from "@/assets/securities-violations.jpg";
 import assetRecoveryImg from "@/assets/asset-recovery.jpg";
 
 const Services = () => {
@@ -52,34 +50,6 @@ const Services = () => {
         "Exchange cooperation",
         "Smart contract analysis",
         "NFT fraud investigation"
-      ]
-    },
-    {
-      id: "forex-fraud",
-      icon: Globe,
-      title: "Forex Trading Fraud",
-      image: forexFraudImg,
-      description: "Investigation of fraudulent forex brokers and trading platforms",
-      features: [
-        "Broker verification",
-        "Trading platform analysis",
-        "Signal service fraud",
-        "Account manipulation investigation",
-        "Fund recovery assistance"
-      ]
-    },
-    {
-      id: "securities",
-      icon: FileCheck,
-      title: "Securities Violations",
-      image: securitiesImg,
-      description: "Expert investigation of securities fraud and regulatory violations",
-      features: [
-        "Insider trading investigation",
-        "Market manipulation detection",
-        "Compliance breach analysis",
-        "Regulatory reporting support",
-        "Civil litigation support"
       ]
     },
     {

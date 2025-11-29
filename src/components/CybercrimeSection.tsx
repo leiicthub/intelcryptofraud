@@ -1,9 +1,7 @@
-import { Shield, AlertTriangle, DollarSign, Coins, TrendingDown, Scale } from "lucide-react";
+import { Shield, DollarSign, Coins, Scale } from "lucide-react";
 import internetFraud from "@/assets/cfi-arrest.jpg";
 import investmentScams from "@/assets/investment-scam-arrest.jpg";
 import cryptoTheft from "@/assets/crypto-arrest.jpg";
-import forexFraud from "@/assets/forex-fraud.jpg";
-import securitiesViolations from "@/assets/securities-violations.jpg";
 import assetRecovery from "@/assets/asset-recovery.jpg";
 
 const categories = [
@@ -24,18 +22,6 @@ const categories = [
     title: "Cryptocurrency Theft",
     description: "Blockchain forensics and crypto asset tracing services",
     image: cryptoTheft,
-  },
-  {
-    icon: TrendingDown,
-    title: "Forex Trading Fraud",
-    description: "Recovery assistance for foreign exchange trading scams",
-    image: forexFraud,
-  },
-  {
-    icon: AlertTriangle,
-    title: "Securities Violations",
-    description: "Investigation of securities fraud and regulatory violations",
-    image: securitiesViolations,
   },
   {
     icon: Scale,
