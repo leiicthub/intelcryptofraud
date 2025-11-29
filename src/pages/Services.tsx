@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Shield, TrendingUp, FileCheck, Search, DollarSign, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import internetFraudImg from "@/assets/internet-fraud.jpg";
+import internetFraudImg from "@/assets/cfi-arrest.jpg";
 import investmentScamsImg from "@/assets/investment-scams.jpg";
 import cryptoTheftImg from "@/assets/crypto-theft.jpg";
 import forexFraudImg from "@/assets/forex-fraud.jpg";
