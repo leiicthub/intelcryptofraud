@@ -12,13 +12,13 @@ const ContactUs = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/10 via-background to-background py-20">
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-20 md:py-32">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 uppercase tracking-tight">
               Contact Us
             </h1>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
               Get in touch with our expert team for confidential consultation
             </p>
           </div>
@@ -93,9 +93,10 @@ const ContactUs = () => {
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider"
+                  className="w-full h-14 bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold uppercase tracking-wider"
+                  asChild
                 >
-                  Submit Inquiry
+                  <a href="/consultation">Submit Full Enquiry</a>
                 </Button>
               </form>
             </Card>
@@ -109,51 +110,65 @@ const ContactUs = () => {
                 </p>
               </div>
 
-              <Card className="p-6">
+              <Card className="p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-start gap-4">
-                  <Mail className="h-6 w-6 text-primary mt-1" />
+                  <div className="bg-primary/10 p-3 rounded-full">
+                    <Mail className="h-6 w-6 text-primary" />
+                  </div>
                   <div>
-                    <h3 className="font-bold text-foreground mb-1">Email</h3>
-                    <p className="text-muted-foreground">info@cfiunit.org</p>
-                    <p className="text-muted-foreground">support@cfiunit.org</p>
+                    <h3 className="font-bold text-foreground mb-2">Email</h3>
+                    <a href="mailto:jayden@cryptofraudintel.com" className="text-muted-foreground hover:text-primary transition-colors block">
+                      jayden@cryptofraudintel.com
+                    </a>
+                    <a href="mailto:Emmavalerie@cryptofraudintel.com" className="text-muted-foreground hover:text-primary transition-colors block">
+                      Emmavalerie@cryptofraudintel.com
+                    </a>
                   </div>
                 </div>
               </Card>
 
-              <Card className="p-6">
+              <Card className="p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-start gap-4">
-                  <Phone className="h-6 w-6 text-primary mt-1" />
+                  <div className="bg-primary/10 p-3 rounded-full">
+                    <Phone className="h-6 w-6 text-primary" />
+                  </div>
                   <div>
-                    <h3 className="font-bold text-foreground mb-1">Phone</h3>
-                    <p className="text-muted-foreground">24/7 Emergency Hotline</p>
-                    <p className="text-foreground font-semibold">+1 (800) CFI-UNIT</p>
+                    <h3 className="font-bold text-foreground mb-2">Phone</h3>
+                    <p className="text-muted-foreground mb-1">24/7 Available</p>
+                    <a href="tel:+12818325219" className="text-foreground font-semibold hover:text-primary transition-colors">
+                      +1 (281) 832 5219
+                    </a>
                   </div>
                 </div>
               </Card>
 
-              <Card className="p-6">
+              <Card className="p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-start gap-4">
-                  <MapPin className="h-6 w-6 text-primary mt-1" />
+                  <div className="bg-primary/10 p-3 rounded-full">
+                    <MapPin className="h-6 w-6 text-primary" />
+                  </div>
                   <div>
-                    <h3 className="font-bold text-foreground mb-1">Office Location</h3>
+                    <h3 className="font-bold text-foreground mb-2">Office Location</h3>
                     <p className="text-muted-foreground">
-                      International Headquarters<br />
-                      Global Financial District<br />
-                      Worldwide Operations
+                      Australia<br />
+                      Serving Clients Worldwide<br />
+                      Cross-Border Operations
                     </p>
                   </div>
                 </div>
               </Card>
 
-              <Card className="p-6">
+              <Card className="p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-start gap-4">
-                  <Clock className="h-6 w-6 text-primary mt-1" />
+                  <div className="bg-primary/10 p-3 rounded-full">
+                    <Clock className="h-6 w-6 text-primary" />
+                  </div>
                   <div>
-                    <h3 className="font-bold text-foreground mb-1">Business Hours</h3>
+                    <h3 className="font-bold text-foreground mb-2">Business Hours</h3>
                     <p className="text-muted-foreground">
-                      Monday - Friday: 24/7<br />
-                      Weekend: 24/7<br />
-                      Emergency Services: Always Available
+                      Monday - Sunday: 24/7<br />
+                      Emergency Services: Always Available<br />
+                      Immediate Response Team
                     </p>
                   </div>
                 </div>
@@ -175,9 +190,10 @@ const ContactUs = () => {
             </p>
             <Button 
               size="lg" 
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider"
+              className="bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold uppercase tracking-wider"
+              asChild
             >
-              Emergency Contact
+              <a href="tel:+12818325219">Call Emergency Line</a>
             </Button>
           </div>
         </div>
