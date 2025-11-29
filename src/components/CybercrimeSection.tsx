@@ -1,8 +1,8 @@
 import { Shield, DollarSign, Coins, Scale } from "lucide-react";
-import internetFraud from "@/assets/award-ceremony-1.jpg";
-import investmentScams from "@/assets/award-ceremony-2.jpg";
-import cryptoTheft from "@/assets/award-ceremony-3.jpg";
-import assetRecovery from "@/assets/award-ceremony-4.jpg";
+import internetFraud from "@/assets/cfi-arrest.jpg";
+import investmentScams from "@/assets/investment-scam-arrest.jpg";
+import cryptoTheft from "@/assets/crypto-arrest.jpg";
+import assetRecovery from "@/assets/asset-recovery.jpg";
 
 const categories = [
   {
