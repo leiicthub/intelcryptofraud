@@ -37,15 +37,9 @@ export const Navigation = () => {
           <div className="hidden lg:flex items-center space-x-6">
             <div className="text-right text-sm">
               <div className="flex items-center gap-2 text-foreground">
-                <span className="font-medium">Australia:</span>
-                <a href="tel:+61283280402" className="hover:text-primary transition-colors">
-                  +61 (02) 8328 0402
-                </a>
-              </div>
-              <div className="flex items-center gap-2 text-foreground mt-1">
-                <span className="font-medium">USA:</span>
-                <a href="tel:+18332027333" className="hover:text-primary transition-colors">
-                  +1 (833) 202 7333
+                <span className="font-medium">HQ:</span>
+                <a href="tel:1300439456" className="hover:text-primary transition-colors">
+                  1300 439 456
                 </a>
               </div>
             </div>
@@ -81,8 +75,7 @@ export const Navigation = () => {
               </a>
               <div className="pt-4 border-t border-border">
                 <div className="text-sm text-foreground mb-2">
-                  <div className="mb-1">Australia: +61 (02) 8328 0402</div>
-                  <div>USA: +1 (833) 202 7333</div>
+                  <div>HQ: 1300 439 456</div>
                 </div>
                 <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider w-full" asChild>
                   <a href="/consultation">Submit an Enquiry</a>

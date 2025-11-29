@@ -54,10 +54,6 @@ export const HeadlinesSection = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-6">
             <a href="tel:1300439456" className="text-primary hover:text-primary/80 font-medium">HQ: 1300 439 456</a>
-            <span className="text-muted-foreground">|</span>
-            <a href="tel:+61283280402" className="text-primary hover:text-primary/80 font-medium">AUS: +61 (02) 8328 0402</a>
-            <span className="text-muted-foreground">|</span>
-            <a href="tel:+18332027333" className="text-primary hover:text-primary/80 font-medium">USA: +1 (833) 202 7333</a>
           </div>
           <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider" asChild>
             <a href="/consultation">Submit an Enquiry</a>
