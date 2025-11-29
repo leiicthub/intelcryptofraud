@@ -4,8 +4,8 @@ import { Shield, TrendingUp, FileCheck, Search, DollarSign, Globe } from "lucide
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import internetFraudImg from "@/assets/cfi-arrest.jpg";
-import investmentScamsImg from "@/assets/investment-scams.jpg";
-import cryptoTheftImg from "@/assets/crypto-theft.jpg";
+import investmentScamsImg from "@/assets/investment-scam-arrest.jpg";
+import cryptoTheftImg from "@/assets/crypto-arrest.jpg";
 import forexFraudImg from "@/assets/forex-fraud.jpg";
 import securitiesImg from "@/assets/securities-violations.jpg";
 import assetRecoveryImg from "@/assets/asset-recovery.jpg";
