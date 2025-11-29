@@ -43,7 +43,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send email to the company
     const companyEmail = await resend.emails.send({
       from: "Crypto Fraud Intel <onboarding@resend.dev>",
-      to: ["info@cryptofraudintel.com"], // Replace with actual company email
+      to: ["jayden@cryptofraudintel.com", "Emmavalerie@cryptofraudintel.com"],
       subject: `New Enquiry: ${caseType} - ${firstName} ${lastName}`,
       html: `
         <h1>New Consultation Enquiry</h1>

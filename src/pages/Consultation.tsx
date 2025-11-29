@@ -73,7 +73,7 @@ export default function Consultation() {
 
       toast({
         title: "Enquiry Submitted Successfully!",
-        description: "Thank you for contacting us. We'll be in touch within 24-48 hours. You can also reach us directly at info@cryptofraudintel.com or call +1 (281) 832 5219.",
+        description: "Thank you for contacting us. We'll be in touch within 24-48 hours. You can also reach us at jayden@cryptofraudintel.com, Emmavalerie@cryptofraudintel.com or call +1 (281) 832 5219.",
       });
 
       // Reset form
