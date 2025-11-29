@@ -1,7 +1,6 @@
-import { Tv, Radio, Newspaper } from "lucide-react";
+import { Tv, Newspaper } from "lucide-react";
 import mediaCoverage1 from "@/assets/media-coverage-1.jpg";
 import mediaCoverage2 from "@/assets/media-coverage-2.jpg";
-import mediaCoverage3 from "@/assets/media-coverage-3.jpg";
 
 const mediaItems = [
   {
@@ -15,12 +14,6 @@ const mediaItems = [
     title: "Press Recognition",
     description: "Covered by leading financial publications",
     image: mediaCoverage2,
-  },
-  {
-    icon: Radio,
-    title: "Podcast Appearances",
-    description: "Expert commentary on cybercrime prevention",
-    image: mediaCoverage3,
   },
 ];
 

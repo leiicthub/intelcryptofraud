@@ -6,10 +6,8 @@ import mediaCoverage3 from "@/assets/media-coverage-3.jpg";
 const mediaFeatures = [
   { image: mediaCoverage1, title: "Global News Network Feature" },
   { image: mediaCoverage2, title: "International Press Coverage" },
-  { image: mediaCoverage3, title: "Digital Media Recognition" },
   { image: mediaCoverage1, title: "Financial Times Investigation" },
   { image: mediaCoverage2, title: "BBC Cybercrime Documentary" },
-  { image: mediaCoverage3, title: "Forbes Asset Recovery Article" },
 ];
 
 export const HeadlinesSection = () => {
