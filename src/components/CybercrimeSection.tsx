@@ -1,7 +1,7 @@
 import { Shield, AlertTriangle, DollarSign, Coins, TrendingDown, Scale } from "lucide-react";
-import internetFraud from "@/assets/internet-fraud.jpg";
-import investmentScams from "@/assets/investment-scams.jpg";
-import cryptoTheft from "@/assets/crypto-theft.jpg";
+import internetFraud from "@/assets/cfi-arrest.jpg";
+import investmentScams from "@/assets/investment-scam-arrest.jpg";
+import cryptoTheft from "@/assets/crypto-arrest.jpg";
 import forexFraud from "@/assets/forex-fraud.jpg";
 import securitiesViolations from "@/assets/securities-violations.jpg";
 import assetRecovery from "@/assets/asset-recovery.jpg";
