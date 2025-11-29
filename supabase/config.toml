@@ -1,1 +1,4 @@
 project_id = "sytvpewxikxeenmrhgsu"
+
+[functions.send-enquiry]
+verify_jwt = false
