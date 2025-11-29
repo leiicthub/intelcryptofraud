@@ -1,6 +1,6 @@
 import { Tv, Newspaper } from "lucide-react";
-import mediaCoverage1 from "@/assets/media-coverage-1.jpg";
-import mediaCoverage2 from "@/assets/media-coverage-2.jpg";
+import mediaCoverage1 from "@/assets/panel-discussion.jpg";
+import mediaCoverage2 from "@/assets/event-booth.jpg";
 
 const mediaItems = [
   {

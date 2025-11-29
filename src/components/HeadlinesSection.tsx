@@ -1,13 +1,14 @@
 import { Button } from "@/components/ui/button";
-import mediaCoverage1 from "@/assets/media-coverage-1.jpg";
-import mediaCoverage2 from "@/assets/media-coverage-2.jpg";
-import mediaCoverage3 from "@/assets/media-coverage-3.jpg";
+import mediaCoverage1 from "@/assets/team-group-1.jpg";
+import mediaCoverage2 from "@/assets/team-group-2.jpg";
+import mediaCoverage3 from "@/assets/team-group-3.jpg";
+import mediaCoverage4 from "@/assets/conference-audience.jpg";
 
 const mediaFeatures = [
   { image: mediaCoverage1, title: "Global News Network Feature" },
   { image: mediaCoverage2, title: "International Press Coverage" },
-  { image: mediaCoverage1, title: "Financial Times Investigation" },
-  { image: mediaCoverage2, title: "BBC Cybercrime Documentary" },
+  { image: mediaCoverage3, title: "Financial Times Investigation" },
+  { image: mediaCoverage4, title: "BBC Cybercrime Documentary" },
 ];
 
 export const HeadlinesSection = () => {
