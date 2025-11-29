@@ -7,7 +7,6 @@ import Index from "./pages/Index";
 import AboutUs from "./pages/AboutUs";
 import Services from "./pages/Services";
 import Media from "./pages/Media";
-import Events from "./pages/Events";
 import Consultation from "./pages/Consultation";
 import RefundPolicy from "./pages/RefundPolicy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -28,7 +27,6 @@ const App = () => (
           <Route path="/about" element={<AboutUs />} />
           <Route path="/services" element={<Services />} />
           <Route path="/media" element={<Media />} />
-          <Route path="/events" element={<Events />} />
           <Route path="/consultation" element={<Consultation />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
