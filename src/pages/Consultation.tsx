@@ -4,8 +4,124 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Shield, CheckCircle2, AlertCircle } from "lucide-react";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { z } from "zod";
+
+const enquirySchema = z.object({
+  firstName: z.string().trim().min(1, "First name is required").max(100),
+  lastName: z.string().trim().min(1, "Last name is required").max(100),
+  phone: z.string().trim().min(1, "Phone number is required").max(50),
+  countryCode: z.string(),
+  email: z.string().trim().email("Invalid email address").max(255),
+  amount: z.string().optional(),
+  caseType: z.string().min(1, "Please select a case type"),
+  details: z.string().trim().min(10, "Please provide at least 10 characters").max(5000),
+});
 
 export default function Consultation() {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    countryCode: "+1",
+    email: "",
+    amount: "",
+    caseType: "",
+    details: "",
+    terms: false,
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formData.terms) {
+      toast({
+        title: "Terms Required",
+        description: "Please agree to the terms and conditions",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      setIsSubmitting(true);
+
+      // Validate form data
+      const validatedData = enquirySchema.parse({
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        phone: formData.phone,
+        countryCode: formData.countryCode,
+        email: formData.email,
+        amount: formData.amount,
+        caseType: formData.caseType,
+        details: formData.details,
+      });
+
+      console.log("Submitting enquiry...");
+
+      // Call edge function
+      const { data, error } = await supabase.functions.invoke("send-enquiry", {
+        body: validatedData,
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Enquiry Submitted!",
+        description: "Thank you for contacting us. We'll be in touch within 24-48 hours.",
+      });
+
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        phone: "",
+        countryCode: "+1",
+        email: "",
+        amount: "",
+        caseType: "",
+        details: "",
+        terms: false,
+      });
+    } catch (error: any) {
+      console.error("Error submitting enquiry:", error);
+      
+      if (error instanceof z.ZodError) {
+        toast({
+          title: "Validation Error",
+          description: error.errors[0]?.message || "Please check your input",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Submission Failed",
+          description: "There was an error submitting your enquiry. Please try again or call us directly.",
+          variant: "destructive",
+        });
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { id, value, type } = e.target;
+    
+    if (type === "checkbox") {
+      const checked = (e.target as HTMLInputElement).checked;
+      setFormData((prev) => ({ ...prev, [id]: checked }));
+    } else {
+      setFormData((prev) => ({ ...prev, [id]: value }));
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -130,17 +246,20 @@ export default function Consultation() {
                 </h2>
               </div>
 
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="firstName" className="block text-sm font-semibold text-foreground mb-2">
                       First Name <span className="text-destructive">*</span>
                     </label>
                     <Input 
-                      id="firstName" 
+                      id="firstName"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
                       placeholder="John" 
                       required 
                       className="h-12 text-base"
+                      disabled={isSubmitting}
                     />
                   </div>
                   <div>
@@ -148,10 +267,13 @@ export default function Consultation() {
                       Last Name <span className="text-destructive">*</span>
                     </label>
                     <Input 
-                      id="lastName" 
+                      id="lastName"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
                       placeholder="Doe" 
                       required 
                       className="h-12 text-base"
+                      disabled={isSubmitting}
                     />
                   </div>
                 </div>
@@ -162,8 +284,11 @@ export default function Consultation() {
                   </label>
                   <div className="flex gap-3">
                     <select 
+                      id="countryCode"
+                      value={formData.countryCode}
+                      onChange={handleInputChange}
                       className="h-12 px-4 rounded-md border border-input bg-background text-foreground w-32"
-                      defaultValue="+1"
+                      disabled={isSubmitting}
                     >
                       <option value="+1">USA +1</option>
                       <option value="+61">AUS +61</option>
@@ -171,11 +296,14 @@ export default function Consultation() {
                       <option value="+91">IND +91</option>
                     </select>
                     <Input 
-                      id="phone" 
+                      id="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
                       type="tel" 
                       placeholder="(281) 832 5219" 
                       required 
                       className="h-12 text-base flex-1"
+                      disabled={isSubmitting}
                     />
                   </div>
                 </div>
@@ -185,11 +313,14 @@ export default function Consultation() {
                     Email <span className="text-destructive">*</span>
                   </label>
                   <Input 
-                    id="email" 
+                    id="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     type="email" 
                     placeholder="john.doe@example.com" 
                     required 
                     className="h-12 text-base"
+                    disabled={isSubmitting}
                   />
                 </div>
 
@@ -198,10 +329,13 @@ export default function Consultation() {
                     How much money have you lost?
                   </label>
                   <Input 
-                    id="amount" 
+                    id="amount"
+                    value={formData.amount}
+                    onChange={handleInputChange}
                     type="number" 
                     placeholder="Enter amount in USD" 
                     className="h-12 text-base"
+                    disabled={isSubmitting}
                   />
                 </div>
 
@@ -210,17 +344,20 @@ export default function Consultation() {
                     Type of Case <span className="text-destructive">*</span>
                   </label>
                   <select 
-                    id="caseType" 
+                    id="caseType"
+                    value={formData.caseType}
+                    onChange={handleInputChange}
                     className="w-full h-12 px-4 rounded-md border border-input bg-background text-foreground text-base"
                     required
+                    disabled={isSubmitting}
                   >
                     <option value="">Select case type</option>
-                    <option value="crypto">Cryptocurrency Theft</option>
-                    <option value="investment">Investment Scams</option>
-                    <option value="forex">Forex Trading Fraud</option>
-                    <option value="securities">Securities Violations</option>
-                    <option value="internet">Internet Fraud</option>
-                    <option value="other">Other</option>
+                    <option value="Cryptocurrency Theft">Cryptocurrency Theft</option>
+                    <option value="Investment Scams">Investment Scams</option>
+                    <option value="Forex Trading Fraud">Forex Trading Fraud</option>
+                    <option value="Securities Violations">Securities Violations</option>
+                    <option value="Internet Fraud">Internet Fraud</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
 
@@ -229,20 +366,26 @@ export default function Consultation() {
                     Message <span className="text-destructive">*</span>
                   </label>
                   <Textarea 
-                    id="details" 
+                    id="details"
+                    value={formData.details}
+                    onChange={handleInputChange}
                     placeholder="Please provide details about your case, including dates, parties involved, and any relevant information..."
                     rows={6}
                     required
                     className="text-base"
+                    disabled={isSubmitting}
                   />
                 </div>
 
                 <div className="flex items-start gap-3 p-4 bg-muted/50 rounded-lg">
                   <input 
                     type="checkbox" 
-                    id="terms" 
+                    id="terms"
+                    checked={formData.terms}
+                    onChange={handleInputChange}
                     className="mt-1 h-4 w-4" 
-                    required 
+                    required
+                    disabled={isSubmitting}
                   />
                   <label htmlFor="terms" className="text-sm text-foreground">
                     I agree to the terms and conditions and understand the refund policy outlined above. I consent to being contacted by Crypto Fraud Intel regarding my case.
@@ -253,8 +396,9 @@ export default function Consultation() {
                   type="submit" 
                   size="lg" 
                   className="w-full h-14 bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold uppercase tracking-wider text-base"
+                  disabled={isSubmitting}
                 >
-                  Submit Enquiry
+                  {isSubmitting ? "Submitting..." : "Submit Enquiry"}
                 </Button>
 
                 <p className="text-sm text-muted-foreground text-center pt-4">
