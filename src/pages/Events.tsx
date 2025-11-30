@@ -19,11 +19,6 @@ import teamGroup3 from "@/assets/team-group-3.jpg";
 const Events = () => {
   const eventGallery = [
     {
-      title: "Global Financial Crimes Summit",
-      image: summitEvent,
-      description: "Major international gathering of cybercrime prevention experts"
-    },
-    {
       title: "Award Ceremony - Excellence in Investigation",
       image: awardCeremony1,
       description: "Recognition for outstanding achievements in crypto fraud recovery"
