@@ -32,73 +32,50 @@ const ContactUs = () => {
             {/* Contact Form */}
             <Card className="p-8">
               <h2 className="text-2xl font-bold text-foreground mb-6">Send Us a Message</h2>
-              <form className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Full Name
-                  </label>
-                  <Input 
-                    id="name" 
-                    placeholder="Enter your full name" 
-                    className="w-full"
-                  />
-                </div>
+              <div className="space-y-6">
+                <p className="text-muted-foreground">
+                  For all inquiries, please contact us directly via email or phone:
+                </p>
                 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Email Address
-                  </label>
-                  <Input 
-                    id="email" 
-                    type="email" 
-                    placeholder="your.email@example.com" 
-                    className="w-full"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                    Phone Number
-                  </label>
-                  <Input 
-                    id="phone" 
-                    type="tel" 
-                    placeholder="+1 (555) 000-0000" 
-                    className="w-full"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
-                    Subject
-                  </label>
-                  <Input 
-                    id="subject" 
-                    placeholder="How can we help you?" 
-                    className="w-full"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    Message
-                  </label>
-                  <Textarea 
-                    id="message" 
-                    placeholder="Please provide details about your case..." 
-                    className="w-full min-h-[150px]"
-                  />
+                <div className="bg-primary/10 border-l-4 border-primary p-6 rounded-r-lg space-y-4">
+                  <div>
+                    <p className="font-semibold text-foreground mb-2">Email:</p>
+                    <a 
+                      href="mailto:info@cryptofraudintel.com" 
+                      className="text-primary hover:underline text-lg"
+                    >
+                      info@cryptofraudintel.com
+                    </a>
+                  </div>
+                  
+                  <div>
+                    <p className="font-semibold text-foreground mb-2">Phone:</p>
+                    <a 
+                      href="tel:+12818325219" 
+                      className="text-primary hover:underline text-lg"
+                    >
+                      +1 (281) 832 5219
+                    </a>
+                  </div>
                 </div>
                 
                 <Button 
-                  type="submit" 
                   size="lg" 
                   className="w-full h-14 bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold uppercase tracking-wider"
                   asChild
                 >
-                  <a href="/consultation">Submit Full Enquiry</a>
+                  <a href="mailto:info@cryptofraudintel.com">Email Us Now</a>
                 </Button>
-              </form>
+                
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  className="w-full h-14 font-bold uppercase tracking-wider"
+                  asChild
+                >
+                  <a href="tel:+12818325219">Call Us Now</a>
+                </Button>
+              </div>
             </Card>
 
             {/* Contact Information */}
