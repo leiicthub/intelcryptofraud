@@ -16,19 +16,19 @@ export const Footer = () => {
               Experts in cross border criminal intelligence, investigations, and asset recovery
             </p>
             <div className="flex gap-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://facebook.com/cryptofraudintel" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://instagram.com/cryptofraudintel" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://linkedin.com/company/cryptofraudintel" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://twitter.com/cryptofraudintel" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://youtube.com/@cryptofraudintel" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Youtube className="h-5 w-5" />
               </a>
             </div>
@@ -45,7 +45,7 @@ export const Footer = () => {
                 <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors">Services</Link>
               </li>
               <li>
-                <Link to="/media" className="text-muted-foreground hover:text-primary transition-colors">Media</Link>
+                <Link to="/contact-us" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link>
               </li>
               <li>
                 <Link to="/events" className="text-muted-foreground hover:text-primary transition-colors">Events</Link>
@@ -61,19 +61,19 @@ export const Footer = () => {
             <h4 className="text-foreground font-bold mb-4 uppercase text-sm tracking-wider">Our Services</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Scam Investigation</a>
+                <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors">Scam Investigation</Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Cyber Investigation</a>
+                <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors">Cyber Investigation</Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Asset Recovery</a>
+                <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors">Asset Recovery</Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Corporate Fraud</a>
+                <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors">Corporate Fraud</Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Crypto Tracing</a>
+                <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors">Crypto Tracing</Link>
               </li>
             </ul>
           </div>
@@ -114,10 +114,10 @@ export const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
             <p>© 2025 CryptoFraudIntel. All rights reserved.</p>
             <div className="flex gap-6">
-              <a href="/refund-policy" className="hover:text-primary transition-colors">Refund Policy</a>
-              <a href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</a>
-              <a href="/terms-of-service" className="hover:text-primary transition-colors">Terms of Service</a>
-              <a href="/cookie-policy" className="hover:text-primary transition-colors">Cookie Policy</a>
+              <Link to="/refund-policy" className="hover:text-primary transition-colors">Refund Policy</Link>
+              <Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+              <Link to="/terms-of-service" className="hover:text-primary transition-colors">Terms of Service</Link>
+              <Link to="/cookie-policy" className="hover:text-primary transition-colors">Cookie Policy</Link>
             </div>
           </div>
         </div>

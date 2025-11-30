@@ -98,7 +98,7 @@ export const Chatbot = () => {
       setIsLoading(false);
       setMessages(prev => [...prev, { 
         role: "assistant", 
-        content: "We apologize for the inconvenience. Please send your inquiry directly to our email:\n\njayden@cryptofraudintel.com\nEmmavalerie@cryptofraudintel.com\n\nOur team will respond as soon as possible." 
+        content: "We apologize for the inconvenience. Please send your inquiry directly to our email:\n\ninfo@cryptofraudintel.com\n\nOur team will respond as soon as possible." 
       }]);
     }
   };

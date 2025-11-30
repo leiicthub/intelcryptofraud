@@ -2,11 +2,20 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Newspaper, Tv, Radio, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 import mediaCoverage1 from "@/assets/media-coverage-1.jpg";
 import mediaCoverage2 from "@/assets/media-coverage-2.jpg";
 import mediaCoverage3 from "@/assets/media-coverage-3.jpg";
+import teamGroup1 from "@/assets/team-group-1.jpg";
+import teamGroup2 from "@/assets/team-group-2.jpg";
+import teamGroup3 from "@/assets/team-group-3.jpg";
 
 const Media = () => {
+  const [expandedArticle, setExpandedArticle] = useState<number | null>(null);
+  const [generatedContent, setGeneratedContent] = useState<Record<number, string>>({});
+  const [loadingArticle, setLoadingArticle] = useState<number | null>(null);
   const pressReleases = [
     {
       date: "March 2025",
@@ -40,23 +49,80 @@ const Media = () => {
       outlet: "Financial Times",
       title: "Leading Firm in Cryptocurrency Fraud Investigation",
       description: "Comprehensive profile of our breakthrough cases and innovative investigation techniques",
-      image: mediaCoverage1
+      image: teamGroup1
     },
     {
       icon: Radio,
       outlet: "BBC World News",
       title: "Exposing International Investment Scams",
       description: "Documentary feature on our work dismantling a $100M Ponzi scheme operation",
-      image: mediaCoverage2
+      image: teamGroup2
     },
     {
       icon: Newspaper,
       outlet: "Bloomberg Radio",
       title: "The Future of Financial Crime Prevention",
       description: "Expert interview discussing emerging fraud trends and prevention strategies",
-      image: mediaCoverage3
+      image: teamGroup3
     }
   ];
+
+  const generateArticle = async (index: number, title: string, excerpt: string) => {
+    if (generatedContent[index]) {
+      setExpandedArticle(expandedArticle === index ? null : index);
+      return;
+    }
+
+    setLoadingArticle(index);
+    try {
+      const { data, error } = await supabase.functions.invoke('chat', {
+        body: { 
+          messages: [
+            {
+              role: "user",
+              content: `Write a detailed, engaging 400-word news article about: "${title}". Context: ${excerpt}. Write in a professional journalism style for CryptoFraudIntel, a cryptocurrency fraud investigation firm. Include specific details, quotes, and impact.`
+            }
+          ]
+        }
+      });
+
+      if (error) throw error;
+
+      const reader = data.body?.getReader();
+      const decoder = new TextDecoder();
+      let fullContent = "";
+
+      if (reader) {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          
+          const text = decoder.decode(value);
+          const lines = text.split('\n');
+          
+          for (const line of lines) {
+            if (line.startsWith('data: ') && line !== 'data: [DONE]') {
+              try {
+                const json = JSON.parse(line.slice(6));
+                const content = json.choices?.[0]?.delta?.content;
+                if (content) fullContent += content;
+              } catch (e) {
+                console.error('Parse error:', e);
+              }
+            }
+          }
+        }
+      }
+
+      setGeneratedContent(prev => ({ ...prev, [index]: fullContent }));
+      setExpandedArticle(index);
+    } catch (error) {
+      console.error('Error generating article:', error);
+      toast.error("Failed to generate article content");
+    } finally {
+      setLoadingArticle(null);
+    }
+  };
 
   const awards = [
     { year: "2025", title: "Excellence in Financial Investigation", organization: "International Association of Financial Crimes Investigators" },
@@ -100,7 +166,19 @@ const Media = () => {
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-3">{feature.title}</h3>
                   <p className="text-muted-foreground mb-4">{feature.description}</p>
-                  <Button variant="outline" className="w-full">Read More</Button>
+                  <Button 
+                    variant="outline" 
+                    className="w-full"
+                    onClick={() => generateArticle(100 + index, feature.title, feature.description)}
+                    disabled={loadingArticle === 100 + index}
+                  >
+                    {loadingArticle === 100 + index ? "Loading..." : "Read More"}
+                  </Button>
+                  {expandedArticle === 100 + index && generatedContent[100 + index] && (
+                    <div className="mt-4 p-4 bg-muted/30 rounded-lg">
+                      <p className="text-foreground text-sm whitespace-pre-wrap">{generatedContent[100 + index]}</p>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -121,7 +199,19 @@ const Media = () => {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3">{release.title}</h3>
                 <p className="text-muted-foreground mb-4">{release.excerpt}</p>
-                <Button variant="link" className="p-0 text-primary">Read Full Release →</Button>
+                {expandedArticle === index && generatedContent[index] && (
+                  <div className="mb-4 p-4 bg-muted/30 rounded-lg">
+                    <p className="text-foreground whitespace-pre-wrap">{generatedContent[index]}</p>
+                  </div>
+                )}
+                <Button 
+                  variant="link" 
+                  className="p-0 text-primary"
+                  onClick={() => generateArticle(index, release.title, release.excerpt)}
+                  disabled={loadingArticle === index}
+                >
+                  {loadingArticle === index ? "Generating..." : expandedArticle === index ? "Show Less ←" : "Read Full Release →"}
+                </Button>
               </div>
             ))}
           </div>
@@ -161,8 +251,8 @@ const Media = () => {
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             For press inquiries, interviews, or media partnerships, please contact our communications team
           </p>
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider">
-            Contact Press Office
+          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider" asChild>
+            <a href="mailto:info@cryptofraudintel.com">Contact Press Office</a>
           </Button>
         </div>
       </section>
