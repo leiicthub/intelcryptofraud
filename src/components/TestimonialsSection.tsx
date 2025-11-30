@@ -20,6 +20,15 @@ const testimonials = [
       "I lost $2.5 million to a crypto investment scam and genuinely believed my money was gone forever. When I contacted Crypto Fraud Intel (CFI), their team immediately took my case seriously. They traced the movement of my funds, provided clear evidence, and guided me through every step of the recovery process with honesty and professionalism.",
       "Thanks to their persistence and expertise, I was able to recover my funds and regain my financial stability. I'm extremely grateful to CFI for their dedication. Highly recommended."
     ]
+  },
+  {
+    name: "Olivia James",
+    subtitle: "Client Testimonial",
+    amount: "$750K",
+    content: [
+      "When I realized I had lost $750,000 to a crypto scam, I was devastated and unsure where to turn. Reaching out to Crypto Fraud Intel (CFI) was the best decision I made. Their team guided me with clarity, professionalism, and consistent updates throughout the investigation.",
+      "CFI carefully traced my funds, explained each step, and supported me through the entire recovery process. Thanks to their dedication and expert approach, I was able to recover my funds and finally regain peace of mind. I highly recommend CFI to anyone facing crypto-related fraud."
+    ]
   }
 ];
 
