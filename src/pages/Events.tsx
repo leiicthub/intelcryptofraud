@@ -1,7 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { EventSection } from "@/components/EventSection";
-import { Calendar, Users, Award, Camera } from "lucide-react";
+import { Camera } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 import awardCeremony1 from "@/assets/award-ceremony-1.jpg";
@@ -13,9 +12,9 @@ import eventBooth from "@/assets/event-booth.jpg";
 import panelDiscussion from "@/assets/panel-discussion.jpg";
 import summitEvent from "@/assets/summit-event.jpg";
 import summitHero from "@/assets/summit-hero-2025-final.jpg";
-import mediaCoverage1 from "@/assets/media-coverage-1.jpg";
-import mediaCoverage2 from "@/assets/media-coverage-2.jpg";
-import mediaCoverage3 from "@/assets/media-coverage-3.jpg";
+import teamGroup1 from "@/assets/team-group-1.jpg";
+import teamGroup2 from "@/assets/team-group-2.jpg";
+import teamGroup3 from "@/assets/team-group-3.jpg";
 
 const Events = () => {
   const eventGallery = [
@@ -60,19 +59,19 @@ const Events = () => {
       description: "Industry leaders discussing cryptocurrency fraud prevention"
     },
     {
-      title: "Media Coverage - Press Conference",
-      image: mediaCoverage1,
-      description: "International media attention on successful recovery cases"
+      title: "Team Collaboration Summit",
+      image: teamGroup1,
+      description: "International experts collaborating on fraud prevention strategies"
     },
     {
-      title: "Media Interview Session",
-      image: mediaCoverage2,
-      description: "Sharing insights on combating financial cybercrime"
+      title: "Leadership Forum",
+      image: teamGroup2,
+      description: "Industry leaders discussing cybercrime investigation methods"
     },
     {
-      title: "News Media Coverage",
-      image: mediaCoverage3,
-      description: "Global recognition for breakthrough investigations"
+      title: "International Partnership Meeting",
+      image: teamGroup3,
+      description: "Building global networks for financial crime prevention"
     }
   ];
 
@@ -91,8 +90,6 @@ const Events = () => {
         </div>
       </section>
 
-      {/* Featured Event Section */}
-      <EventSection />
 
       {/* Event Gallery */}
       <section className="py-20 bg-background">

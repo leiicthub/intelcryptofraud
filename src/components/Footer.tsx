@@ -39,13 +39,13 @@ export const Footer = () => {
             <h4 className="text-foreground font-bold mb-4 uppercase text-sm tracking-wider">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/about-us" className="text-muted-foreground hover:text-primary transition-colors">About Us</Link>
+                <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">About Us</Link>
               </li>
               <li>
                 <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors">Services</Link>
               </li>
               <li>
-                <Link to="/contact-us" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link>
+                <Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link>
               </li>
               <li>
                 <Link to="/events" className="text-muted-foreground hover:text-primary transition-colors">Events</Link>
