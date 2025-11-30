@@ -9,25 +9,25 @@ import mediaCoverage3 from "@/assets/media-coverage-3.jpg";
 const Media = () => {
   const pressReleases = [
     {
-      date: "March 2024",
+      date: "March 2025",
       title: "CryptoFraudIntel Recovers $50M in International Crypto Scam",
       excerpt: "Our team successfully traced and recovered $50 million in stolen cryptocurrency across multiple jurisdictions...",
       category: "Press Release"
     },
     {
-      date: "February 2024",
+      date: "February 2025",
       title: "Partnership with Global Law Enforcement Agencies Announced",
       excerpt: "CryptoFraudIntel expands collaboration with Interpol and FBI to combat cross-border financial fraud...",
       category: "Press Release"
     },
     {
-      date: "January 2024",
+      date: "January 2025",
       title: "New AI-Powered Fraud Detection System Launched",
       excerpt: "Revolutionary technology enables real-time detection and prevention of sophisticated fraud schemes...",
       category: "Technology"
     },
     {
-      date: "December 2023",
+      date: "December 2024",
       title: "Year in Review: 2,500+ Cases Successfully Resolved",
       excerpt: "Record-breaking year sees unprecedented success in asset recovery and fraud prevention...",
       category: "Annual Report"
@@ -59,10 +59,10 @@ const Media = () => {
   ];
 
   const awards = [
-    { year: "2024", title: "Excellence in Financial Investigation", organization: "International Association of Financial Crimes Investigators" },
-    { year: "2023", title: "Top Cybersecurity Investigation Firm", organization: "Global Security Awards" },
-    { year: "2023", title: "Innovation in Blockchain Forensics", organization: "Crypto Crime Association" },
-    { year: "2022", title: "Client Service Excellence Award", organization: "Better Business Bureau" }
+    { year: "2025", title: "Excellence in Financial Investigation", organization: "International Association of Financial Crimes Investigators" },
+    { year: "2024", title: "Top Cybersecurity Investigation Firm", organization: "Global Security Awards" },
+    { year: "2024", title: "Innovation in Blockchain Forensics", organization: "Crypto Crime Association" },
+    { year: "2023", title: "Client Service Excellence Award", organization: "Better Business Bureau" }
   ];
 
   return (

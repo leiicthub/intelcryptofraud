@@ -12,6 +12,7 @@ import conferenceAudience from "@/assets/conference-audience.jpg";
 import eventBooth from "@/assets/event-booth.jpg";
 import panelDiscussion from "@/assets/panel-discussion.jpg";
 import summitEvent from "@/assets/summit-event.jpg";
+import summitHero from "@/assets/summit-hero-2025-final.jpg";
 import mediaCoverage1 from "@/assets/media-coverage-1.jpg";
 import mediaCoverage2 from "@/assets/media-coverage-2.jpg";
 import mediaCoverage3 from "@/assets/media-coverage-3.jpg";
@@ -79,22 +80,14 @@ const Events = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-20 md:py-32">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="flex justify-center gap-4 mb-6">
-              <Calendar className="h-12 w-12 text-amber-500" />
-              <Users className="h-12 w-12 text-amber-500" />
-              <Award className="h-12 w-12 text-amber-500" />
-            </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 uppercase tracking-tight">
-              Our Events
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
-              Global Recognition & Industry Leadership in Cybercrime Prevention
-            </p>
-          </div>
+      {/* Hero Section with Banner */}
+      <section className="relative">
+        <div className="relative w-full">
+          <img 
+            src={summitHero} 
+            alt="Global Financial Crimes Summit 2025"
+            className="w-full h-auto object-cover"
+          />
         </div>
       </section>
 

@@ -104,7 +104,7 @@ const EventHighlights = () => {
               Event Highlights
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
-              Global Financial Crimes Summit 2024
+              Global Financial Crimes Summit 2025
             </p>
             <p className="text-lg text-gray-400 mt-4">
               Explore highlights from the two-day summit. Click on an image to see a larger view.
