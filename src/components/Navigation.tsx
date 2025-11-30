@@ -28,8 +28,8 @@ export const Navigation = () => {
             <a href="/media" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
               Media
             </a>
-            <a href="/contact" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
-              Contact Us
+            <a href="/events" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
+              Events
             </a>
           </div>
 
@@ -70,8 +70,8 @@ export const Navigation = () => {
               <a href="/media" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
                 Media
               </a>
-              <a href="/contact" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
-                Contact Us
+              <a href="/events" className="text-foreground hover:text-primary transition-colors text-sm font-medium">
+                Events
               </a>
               <div className="pt-4 border-t border-border">
                 <div className="text-sm text-foreground mb-2">
