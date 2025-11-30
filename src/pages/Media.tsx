@@ -36,21 +36,21 @@ const Media = () => {
 
   const mediaFeatures = [
     {
-      icon: Newspaper,
+      icon: Tv,
       outlet: "Financial Times",
       title: "Leading Firm in Cryptocurrency Fraud Investigation",
       description: "Comprehensive profile of our breakthrough cases and innovative investigation techniques",
       image: mediaCoverage1
     },
     {
-      icon: Tv,
+      icon: Radio,
       outlet: "BBC World News",
       title: "Exposing International Investment Scams",
       description: "Documentary feature on our work dismantling a $100M Ponzi scheme operation",
       image: mediaCoverage2
     },
     {
-      icon: Radio,
+      icon: Newspaper,
       outlet: "Bloomberg Radio",
       title: "The Future of Financial Crime Prevention",
       description: "Expert interview discussing emerging fraud trends and prevention strategies",
