@@ -1,134 +1,9 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Shield, CheckCircle2, AlertCircle } from "lucide-react";
-import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
-import { z } from "zod";
-
-const enquirySchema = z.object({
-  firstName: z.string().trim().min(1, "First name is required").max(100),
-  lastName: z.string().trim().min(1, "Last name is required").max(100),
-  phone: z.string().trim().min(1, "Phone number is required").max(50),
-  countryCode: z.string(),
-  country: z.string().trim().min(1, "Country is required").max(100),
-  email: z.string().trim().email("Invalid email address").max(255),
-  preferredCommunication: z.string().min(1, "Please select a preferred communication method"),
-  amount: z.string().optional(),
-  caseType: z.string().min(1, "Please select a case type"),
-  details: z.string().trim().min(10, "Please provide at least 10 characters").max(5000),
-});
+import { Shield, CheckCircle2, AlertCircle, Mail, Phone } from "lucide-react";
 
 export default function Consultation() {
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    phone: "",
-    countryCode: "+1",
-    country: "",
-    email: "",
-    preferredCommunication: "",
-    amount: "",
-    caseType: "",
-    details: "",
-    terms: false,
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!formData.terms) {
-      toast({
-        title: "Terms Required",
-        description: "Please agree to the terms and conditions",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    try {
-      setIsSubmitting(true);
-
-      // Validate form data
-      const validatedData = enquirySchema.parse({
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        phone: formData.phone,
-        countryCode: formData.countryCode,
-        country: formData.country,
-        email: formData.email,
-        preferredCommunication: formData.preferredCommunication,
-        amount: formData.amount,
-        caseType: formData.caseType,
-        details: formData.details,
-      });
-
-      console.log("Submitting enquiry...");
-
-      // Call edge function
-      const { data, error } = await supabase.functions.invoke("send-enquiry", {
-        body: validatedData,
-      });
-
-      if (error) throw error;
-
-      toast({
-        title: "Enquiry Submitted Successfully!",
-        description: "Thank you for contacting us. We'll be in touch within 24-48 hours. You can also reach us at jayden@cryptofraudintel.com, Emmavalerie@cryptofraudintel.com or call +1 (281) 832 5219.",
-      });
-
-      // Reset form
-      setFormData({
-        firstName: "",
-        lastName: "",
-        phone: "",
-        countryCode: "+1",
-        country: "",
-        email: "",
-        preferredCommunication: "",
-        amount: "",
-        caseType: "",
-        details: "",
-        terms: false,
-      });
-    } catch (error: any) {
-      console.error("Error submitting enquiry:", error);
-      
-      if (error instanceof z.ZodError) {
-        toast({
-          title: "Validation Error",
-          description: error.errors[0]?.message || "Please check your input",
-          variant: "destructive",
-        });
-      } else {
-        toast({
-          title: "Submission Failed",
-          description: "There was an error submitting your enquiry. Please try again or call us directly.",
-          variant: "destructive",
-        });
-      }
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    const { id, value, type } = e.target;
-    
-    if (type === "checkbox") {
-      const checked = (e.target as HTMLInputElement).checked;
-      setFormData((prev) => ({ ...prev, [id]: checked }));
-    } else {
-      setFormData((prev) => ({ ...prev, [id]: value }));
-    }
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -246,245 +121,79 @@ export default function Consultation() {
               </div>
             </div>
 
-            {/* Form Section */}
+            {/* Contact Section */}
             <div className="bg-background">
               <div className="mb-8">
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                  Complete our enquiry form and get started with your investigation.
+                  Ready to Start Your Investigation?
                 </h2>
+                <p className="text-lg text-muted-foreground">
+                  Contact us directly to discuss your case with our expert team.
+                </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="firstName" className="block text-sm font-semibold text-foreground mb-2">
-                      First Name <span className="text-destructive">*</span>
-                    </label>
-                    <Input 
-                      id="firstName"
-                      value={formData.firstName}
-                      onChange={handleInputChange}
-                      placeholder="John" 
-                      required 
-                      className="h-12 text-base"
-                      disabled={isSubmitting}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="lastName" className="block text-sm font-semibold text-foreground mb-2">
-                      Last Name <span className="text-destructive">*</span>
-                    </label>
-                    <Input 
-                      id="lastName"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      placeholder="Doe" 
-                      required 
-                      className="h-12 text-base"
-                      disabled={isSubmitting}
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-foreground mb-2">
-                    Phone <span className="text-destructive">*</span>
-                  </label>
-                  <div className="flex gap-3">
-                    <select 
-                      id="countryCode"
-                      value={formData.countryCode}
-                      onChange={handleInputChange}
-                      className="h-12 px-4 rounded-md border border-input bg-background text-foreground w-32"
-                      disabled={isSubmitting}
-                    >
-                      <option value="+1">USA +1</option>
-                      <option value="+61">AUS +61</option>
-                      <option value="+44">UK +44</option>
-                      <option value="+91">IND +91</option>
-                    </select>
-                    <Input 
-                      id="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      type="tel" 
-                      placeholder="(281) 832 5219" 
-                      required 
-                      className="h-12 text-base flex-1"
-                      disabled={isSubmitting}
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="country" className="block text-sm font-semibold text-foreground mb-2">
-                    Country <span className="text-destructive">*</span>
-                  </label>
-                  <select 
-                    id="country"
-                    value={formData.country}
-                    onChange={handleInputChange}
-                    className="w-full h-12 px-4 rounded-md border border-input bg-background text-foreground text-base"
-                    required
-                    disabled={isSubmitting}
-                  >
-                    <option value="">Select your country</option>
-                    <option value="United States">United States</option>
-                    <option value="United Kingdom">United Kingdom</option>
-                    <option value="Canada">Canada</option>
-                    <option value="Australia">Australia</option>
-                    <option value="Germany">Germany</option>
-                    <option value="France">France</option>
-                    <option value="Spain">Spain</option>
-                    <option value="Italy">Italy</option>
-                    <option value="Netherlands">Netherlands</option>
-                    <option value="Belgium">Belgium</option>
-                    <option value="Switzerland">Switzerland</option>
-                    <option value="Austria">Austria</option>
-                    <option value="Sweden">Sweden</option>
-                    <option value="Norway">Norway</option>
-                    <option value="Denmark">Denmark</option>
-                    <option value="Finland">Finland</option>
-                    <option value="Ireland">Ireland</option>
-                    <option value="Poland">Poland</option>
-                    <option value="Czech Republic">Czech Republic</option>
-                    <option value="Portugal">Portugal</option>
-                    <option value="Greece">Greece</option>
-                    <option value="New Zealand">New Zealand</option>
-                    <option value="Singapore">Singapore</option>
-                    <option value="Hong Kong">Hong Kong</option>
-                    <option value="Japan">Japan</option>
-                    <option value="South Korea">South Korea</option>
-                    <option value="India">India</option>
-                    <option value="United Arab Emirates">United Arab Emirates</option>
-                    <option value="Saudi Arabia">Saudi Arabia</option>
-                    <option value="South Africa">South Africa</option>
-                    <option value="Brazil">Brazil</option>
-                    <option value="Mexico">Mexico</option>
-                    <option value="Argentina">Argentina</option>
-                    <option value="Chile">Chile</option>
-                    <option value="Colombia">Colombia</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2">
-                    Email <span className="text-destructive">*</span>
-                  </label>
-                  <Input 
-                    id="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    type="email" 
-                    placeholder="john.doe@example.com" 
-                    required 
-                    className="h-12 text-base"
-                    disabled={isSubmitting}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="preferredCommunication" className="block text-sm font-semibold text-foreground mb-2">
-                    Preferred Communication Method <span className="text-destructive">*</span>
-                  </label>
-                  <select 
-                    id="preferredCommunication"
-                    value={formData.preferredCommunication}
-                    onChange={handleInputChange}
-                    className="w-full h-12 px-4 rounded-md border border-input bg-background text-foreground text-base"
-                    required
-                    disabled={isSubmitting}
-                  >
-                    <option value="">Select communication method</option>
-                    <option value="Email">Email</option>
-                    <option value="Phone Call">Phone Call</option>
-                    <option value="WhatsApp">WhatsApp</option>
-                    <option value="SMS">SMS</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="amount" className="block text-sm font-semibold text-foreground mb-2">
-                    How much money have you lost?
-                  </label>
-                  <Input 
-                    id="amount"
-                    value={formData.amount}
-                    onChange={handleInputChange}
-                    type="number" 
-                    placeholder="Enter amount in USD" 
-                    className="h-12 text-base"
-                    disabled={isSubmitting}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="caseType" className="block text-sm font-semibold text-foreground mb-2">
-                    Type of Case <span className="text-destructive">*</span>
-                  </label>
-                  <select 
-                    id="caseType"
-                    value={formData.caseType}
-                    onChange={handleInputChange}
-                    className="w-full h-12 px-4 rounded-md border border-input bg-background text-foreground text-base"
-                    required
-                    disabled={isSubmitting}
-                  >
-                    <option value="">Select case type</option>
-                    <option value="Cryptocurrency Theft">Cryptocurrency Theft</option>
-                    <option value="Investment Scams">Investment Scams</option>
-                    <option value="Forex Trading Fraud">Forex Trading Fraud</option>
-                    <option value="Securities Violations">Securities Violations</option>
-                    <option value="Internet Fraud">Internet Fraud</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="details" className="block text-sm font-semibold text-foreground mb-2">
-                    Message <span className="text-destructive">*</span>
-                  </label>
-                  <Textarea 
-                    id="details"
-                    value={formData.details}
-                    onChange={handleInputChange}
-                    placeholder="Please provide details about your case, including dates, parties involved, and any relevant information..."
-                    rows={6}
-                    required
-                    className="text-base"
-                    disabled={isSubmitting}
-                  />
-                </div>
-
-                <div className="flex items-start gap-3 p-4 bg-muted/50 rounded-lg">
-                  <input 
-                    type="checkbox" 
-                    id="terms"
-                    checked={formData.terms}
-                    onChange={handleInputChange}
-                    className="mt-1 h-4 w-4" 
-                    required
-                    disabled={isSubmitting}
-                  />
-                  <label htmlFor="terms" className="text-sm text-foreground">
-                    I agree to the terms and conditions and understand the refund policy outlined above. I consent to being contacted by Crypto Fraud Intel regarding my case.
-                  </label>
-                </div>
-
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  className="w-full h-14 bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold uppercase tracking-wider text-base"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? "Submitting..." : "Submit Enquiry"}
-                </Button>
-
-                <p className="text-sm text-muted-foreground text-center pt-4">
-                  Or call us directly: <a href="tel:+12818325219" className="text-primary hover:underline font-medium">HQ: +1 (281) 832 5219</a>
+              <div className="space-y-6 max-w-2xl mx-auto">
+                <p className="text-muted-foreground text-lg text-center mb-8">
+                  Please reach out to us directly to discuss your case in detail. Our team is available 24/7 for consultations.
                 </p>
-              </form>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <a 
+                    href="mailto:info@cryptofraudintel.com"
+                    className="flex flex-col items-center gap-4 p-8 bg-primary/10 hover:bg-primary/20 rounded-lg transition-colors group border border-primary/20"
+                  >
+                    <div className="bg-primary/20 p-4 rounded-full group-hover:bg-primary/30 transition-colors">
+                      <Mail className="h-8 w-8 text-primary" />
+                    </div>
+                    <div className="text-center">
+                      <p className="font-bold text-foreground text-lg mb-2">Email Us</p>
+                      <p className="text-sm text-muted-foreground">info@cryptofraudintel.com</p>
+                    </div>
+                  </a>
+
+                  <a 
+                    href="tel:+12818325219"
+                    className="flex flex-col items-center gap-4 p-8 bg-primary/10 hover:bg-primary/20 rounded-lg transition-colors group border border-primary/20"
+                  >
+                    <div className="bg-primary/20 p-4 rounded-full group-hover:bg-primary/30 transition-colors">
+                      <Phone className="h-8 w-8 text-primary" />
+                    </div>
+                    <div className="text-center">
+                      <p className="font-bold text-foreground text-lg mb-2">Call Us</p>
+                      <p className="text-sm text-muted-foreground">+1 (281) 832 5219</p>
+                      <p className="text-xs text-muted-foreground mt-1">Available 24/7</p>
+                    </div>
+                  </a>
+                </div>
+                
+                <div className="bg-primary/5 border border-primary/20 rounded-lg p-8 mt-8">
+                  <p className="text-center text-foreground font-semibold mb-4">
+                    Include in Your Email:
+                  </p>
+                  <ul className="space-y-2 text-sm text-muted-foreground max-w-lg mx-auto">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Your full name and contact information</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Type of fraud (crypto theft, investment scam, forex fraud, etc.)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Approximate amount lost</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Brief description of what happened</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Preferred communication method</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
