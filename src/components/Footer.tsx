@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Linkedin, Twitter, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/cfi-logo.png";
 
 export const Footer = () => {
@@ -38,19 +39,19 @@ export const Footer = () => {
             <h4 className="text-foreground font-bold mb-4 uppercase text-sm tracking-wider">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">About Us</a>
+                <Link to="/about-us" className="text-muted-foreground hover:text-primary transition-colors">About Us</Link>
               </li>
               <li>
-                <a href="#services" className="text-muted-foreground hover:text-primary transition-colors">Services</a>
+                <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors">Services</Link>
               </li>
               <li>
-                <a href="#media" className="text-muted-foreground hover:text-primary transition-colors">Media</a>
+                <Link to="/media" className="text-muted-foreground hover:text-primary transition-colors">Media</Link>
               </li>
               <li>
-                <a href="#events" className="text-muted-foreground hover:text-primary transition-colors">Events</a>
+                <Link to="/events" className="text-muted-foreground hover:text-primary transition-colors">Events</Link>
               </li>
               <li>
-                <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</a>
+                <Link to="/consultation" className="text-muted-foreground hover:text-primary transition-colors">Consultation</Link>
               </li>
             </ul>
           </div>

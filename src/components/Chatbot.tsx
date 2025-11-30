@@ -96,7 +96,10 @@ export const Chatbot = () => {
     } catch (error) {
       console.error("Chat error:", error);
       setIsLoading(false);
-      setMessages(prev => [...prev, { role: "assistant", content: "Sorry, I encountered an error. Please try again." }]);
+      setMessages(prev => [...prev, { 
+        role: "assistant", 
+        content: "We apologize for the inconvenience. Please send your inquiry directly to our email:\n\njayden@cryptofraudintel.com\nEmmavalerie@cryptofraudintel.com\n\nOur team will respond as soon as possible." 
+      }]);
     }
   };
 

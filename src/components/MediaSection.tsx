@@ -1,4 +1,6 @@
 import { Tv, Newspaper } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import mediaCoverage1 from "@/assets/panel-discussion.jpg";
 import mediaCoverage2 from "@/assets/event-booth.jpg";
 
@@ -25,9 +27,14 @@ export const MediaSection = () => {
           <p className="text-primary text-sm tracking-widest uppercase mb-4 font-medium">
             Media Coverage
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Featured In Leading Media
           </h2>
+          <Link to="/events">
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              View All Events
+            </Button>
+          </Link>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
