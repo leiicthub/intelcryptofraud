@@ -1,4 +1,5 @@
 import { Calendar, Users, Trophy } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import summitEvent from "@/assets/summit-event.jpg";
 
@@ -36,12 +37,14 @@ export const EventSection = () => {
               The Global Financial Crimes Summit was a resounding success. We extend our heartfelt thanks to the sponsors, speakers, delegates, and everyone who contributed to making this historic event possible.
             </p>
             
-            <Button 
-              size="lg" 
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider"
-            >
-              View Event Highlights
-            </Button>
+            <Link to="/event-highlights">
+              <Button 
+                size="lg" 
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider"
+              >
+                View Event Highlights
+              </Button>
+            </Link>
             </div>
           </div>
         </div>
