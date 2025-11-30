@@ -117,26 +117,22 @@ const Events = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {eventGallery.map((event, index) => (
-                <Card key={index} className="overflow-hidden group hover:shadow-xl transition-all duration-300">
-                  <div className="relative h-64 overflow-hidden">
-                    <img 
-                      src={event.image} 
-                      alt={event.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent"></div>
+                <div key={index} className="relative overflow-hidden group aspect-[4/3]">
+                  <img 
+                    src={event.image} 
+                    alt={event.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <div className="p-4 text-white">
+                      <h3 className="font-bold text-sm">
+                        {event.title}
+                      </h3>
+                    </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-lg font-bold text-foreground mb-2">
-                      {event.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      {event.description}
-                    </p>
-                  </div>
-                </Card>
+                </div>
               ))}
             </div>
           </div>
