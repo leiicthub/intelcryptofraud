@@ -176,7 +176,7 @@ export default function Consultation() {
                       Please note:
                     </p>
                     <p className="text-amber-800 dark:text-amber-200">
-                      For fraud-related investigations, Crypto Fraud Intel reviews cases of all sizes. Our team will assess your case and provide recommendations on the best course of action.
+                      For fraud-related investigations, Crypto Fraud Intel does not accept cases involving loses below USD 100,000. The minimum fee to initiate an online fraud investigation is USD 12,000.
                     </p>
                   </div>
                 </div>
